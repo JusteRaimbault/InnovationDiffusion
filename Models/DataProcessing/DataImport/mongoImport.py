@@ -2,16 +2,17 @@ import pymongo,sys,os
 import parser,utils
 
 MONGOPATH = open('.mongopath').readlines()[0]
-DATABASE = get_parameter("databaseraw",as_string=True)
+DATABASE = utils.get_parameter("databaseraw",as_string=True)
 
 COLLECTION = 'patents'
+
+print(MONGOPATH)
 
 # Specific data import with caracs / text in separate repos
 # generic with any number of directories
 # consolidate with an unique id
 def import_data(dirs):
-    print('importing file '+str(f))
-    mongo = pymongo.MongoClient(MONGOPATH)
+    mongo = pymongo.MongoClient(MONGOPATH,29019)
     database = mongo[DATABASE]
 
     database[COLLECTION].create_index('id')
@@ -21,7 +22,7 @@ def import_data(dirs):
     for dir in dirs:
         currentdic = {}
         for f in os.listdir(dir):
-            currentdata = parser.parse_csv(f,',','appln_id')
+            currentdata = parser.parse_csv(dir+'/'+f,',','appln_id')
             currentdic.update(currentdata)
         dicos[str(dir)]=currentdic
 

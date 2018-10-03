@@ -1,21 +1,41 @@
-import pymongo,sys
-import parser
+import pymongo,sys,os
+import parser,utils
 
 MONGOPATH = open('.mongopath').readlines()[0]
-# 'mongodb://root:root@127.0.0.1:29019'
+DATABASE = get_parameter("databaseraw",as_string=True)
 
-def import_file(f,db,collection):
+COLLECTION = 'patents'
+
+# Specific data import with caracs / text in separate repos
+# generic with any number of directories
+# consolidate with an unique id
+def import_data(dirs):
     print('importing file '+str(f))
     mongo = pymongo.MongoClient(MONGOPATH)
-    database = mongo['db']
+    database = mongo[DATABASE]
 
-    database[collection].create_index('id')
+    database[COLLECTION].create_index('id')
 
-    data = parser.parse_csv(f)
-    #year = f.split('/')[1].split('.')[0].split('_')[0]
-    #data = parser.parse_file(f,year)
+    dicos = {}
+    # load all dicos
+    for dir in dirs:
+        currentdic = {}
+        for f in os.listdir(dir):
+            currentdata = parser.parse_csv(f,',','appln_id')
+            currentdic.update(currentdata)
+        dicos[str(dir)]=currentdic
 
-    database[collection].insert_many(data)
+    # consolidate dicos
+    data = {}
+    for dir in dicos.keys():
+        for id in dicos[dir].keys():
+            print(id)
+            if id in data:
+                data[id].update(dicos[dir][id])
+            else :
+                data[id] = dicos[dir][id]
 
+    # insert the data
+    database[COLLECTION].insert_many(data)
 
-#import_file(sys.argv[1])
+import_data(['../../../Data/Data/tls/tls201','../../../Data/Data/tls/tls203'])

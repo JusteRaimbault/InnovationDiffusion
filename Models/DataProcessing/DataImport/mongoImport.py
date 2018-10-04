@@ -22,7 +22,7 @@ def import_data(dirs):
     for dir in dirs:
         currentdic = {}
         for f in os.listdir(dir):
-            currentdata = parser.parse_csv(dir+'/'+f,',','appln_id')
+            currentdata = parser.parse_csv(dir+'/'+f,',','"','appln_id')
             currentdic.update(currentdata)
         dicos[str(dir)]=currentdic
 

@@ -1,2 +1,4 @@
 .mongopath
 
+__pycache__
+

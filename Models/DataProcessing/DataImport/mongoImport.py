@@ -3,10 +3,12 @@ import parser,utils
 
 MONGOPATH = open('.mongopath').readlines()[0]
 DATABASE = utils.get_parameter("databaseraw",as_string=True)
+#DATABASE='test'
 
 COLLECTION = 'patents'
+#COLLECTION='test'
 
-print(MONGOPATH)
+#print(MONGOPATH)
 
 # Specific data import with caracs / text in separate repos
 # generic with any number of directories
@@ -30,13 +32,25 @@ def import_data(dirs):
     data = {}
     for dir in dicos.keys():
         for id in dicos[dir].keys():
-            print(id)
+            #print(id)
             if id in data:
                 data[id].update(dicos[dir][id])
             else :
                 data[id] = dicos[dir][id]
 
+    # filter
+    filtdata=[]
+    for id in data.keys():
+        currentrec=data[id]
+        if int(currentrec['appln_filing_year'])>=1985 and currentrec['appln_auth'] in ['EP','US','JP'] and 'appln_abstract' in currentrec.keys():
+            filtdata.append(currentrec)
+
     # insert the data
-    database[COLLECTION].insert_many(data)
+    #print(data)
+    #print(type(data.values()))
+    #print(type(data[data.keys()[0]]))
+    database[COLLECTION].insert_many(filtdata)
 
 import_data(['../../../Data/Data/tls/tls201','../../../Data/Data/tls/tls203'])
+#import_data(['../../../Data/Data/test/list','../../../Data/Data/test/text'])
+

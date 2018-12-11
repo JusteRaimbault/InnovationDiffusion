@@ -1,0 +1,3 @@
+[submodule "Models/DataProcessing/SemanticPatents"]
+	path = Models/DataProcessing/SemanticPatents
+	url = git@github.com:JusteRaimbault/SemanticPatents.git

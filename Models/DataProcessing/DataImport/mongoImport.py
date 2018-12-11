@@ -30,7 +30,7 @@ def import_data(dirs):
     data = {}
     for dir in dicos.keys():
         for id in dicos[dir].keys():
-            print(id)
+            #print(id)
             if id in data:
                 data[id].update(dicos[dir][id])
             else :

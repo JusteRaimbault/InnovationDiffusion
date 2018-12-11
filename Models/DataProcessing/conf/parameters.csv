@@ -11,4 +11,4 @@ kwLimit;100000;-
 edge_th;10;-
 dispth;0.06;-
 ethunit;4.1e-5;-
-bulksize;10000
+bulksize;10

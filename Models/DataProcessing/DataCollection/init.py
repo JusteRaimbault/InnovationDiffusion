@@ -9,4 +9,9 @@ mongo = pymongo.MongoClient(utils.get_parameter('mongopath',True,True))
 database = mongo[DATABASE]
 
 # fill id coll with id to collect
-database['tocollect'].insert_many(range(MINID,MAXID))
+ids = [{'id':i} for i in list(range(MINID,MAXID))]
+
+database['tocollect'].insert_many(ids)
+
+
+

@@ -1,8 +1,10 @@
 import pymongo,utils
 
-DATABASE='uspto'
+#DATABASE='uspto'
+DATABASE='test'
 MINID=150
-MAXID=4200000
+#MAXID=4200000
+MAXID=10000
 
 
 mongo = pymongo.MongoClient(utils.get_parameter('mongopath',True,True))

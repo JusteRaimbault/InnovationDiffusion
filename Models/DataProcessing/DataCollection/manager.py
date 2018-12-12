@@ -97,4 +97,4 @@ class TorPoolManager():
     #' Release the current port (in the c ase of an exclusive use), by switching without exclusivity
     def releasePort(self):
         print('Releasing port'+str(self.port))
-        switchPort(self,False)
+        self.switchPort(False)

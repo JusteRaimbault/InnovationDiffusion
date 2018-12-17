@@ -8,8 +8,15 @@ for l in rawtext:
 
 tree = html.fromstring(text)
 
+# grant
 grantDate = tree.xpath("//time[@itemprop='grantDate']")[0].text
 print(grantDate)
+
+# description
+description=''
+for e in tree.xpath("//section[@itemprop='description']")[0].getchildren() :
+    description=description+' '+str(e.text)
+print(description)
 
 for kw in tree.xpath("//dd[@itemprop='priorArtKeywords']"):
     print(kw.text)

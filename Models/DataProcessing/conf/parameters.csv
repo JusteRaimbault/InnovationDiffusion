@@ -5,10 +5,10 @@ databaseraw;rawdata;-
 window-size;3;-
 start-year;1976;beginning of first window
 end-year;2010;beginning of last window
-nruns;15;-
+nruns;10;-
 # construction parameters
 kwLimit;100000;-
 edge_th;10;-
 dispth;0.06;-
 ethunit;4.1e-5;-
-bulksize;10
+bulksize;5000;-

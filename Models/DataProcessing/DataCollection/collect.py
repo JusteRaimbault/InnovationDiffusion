@@ -56,4 +56,3 @@ pool.releasePort()
 
 print('Success rate = '+str(successnum/BULKSIZE))
 print('Ellapsed time = '+str((time.time()-start))+'s')
-

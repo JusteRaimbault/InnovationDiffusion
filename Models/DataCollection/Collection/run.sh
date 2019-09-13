@@ -1,8 +1,8 @@
 
-cd /home/juste/ComplexSystems/InnovationDiffusion/Models/DataProcessing/DataCollection
+cd $HOME/ComplexSystems/InnovationDiffusion/Models/DataProcessing/DataCollection
 
 #echo `which python`
-PYTHON=/home/juste/anaconda3/bin/python
+PYTHON=$HOME/anaconda3/bin/python
 SCRIPT=collect.py
 
 RUNNING=`ps -ef | grep "python $SCRIPT" | grep -v "grep" | wc -l`

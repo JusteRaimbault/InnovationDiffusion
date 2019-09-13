@@ -4,7 +4,7 @@ import time
 import sys
 
 
-def get_page(url,socks_port,write_to_file):
+def get_page(url,socks_port,write_to_file,jsrender_delay):
     #driver = webdriver.Firefox()
     profile=webdriver.FirefoxProfile()
     profile.set_preference('network.proxy.type', 1)
@@ -25,7 +25,7 @@ def get_page(url,socks_port,write_to_file):
             f1.write(driver.page_source)
             f1.close()
 
-    time.sleep(2)
+    time.sleep(jsrender_delay)
 
     if write_to_file==True:
         with open('test/descr.html','w') as f2:
@@ -35,8 +35,9 @@ def get_page(url,socks_port,write_to_file):
 
     res=str(driver.page_source)
 
-    driver.get("http://api.ipify.org")
-    print('IP is : '+str(driver.page_source))
+    #driver.get("http://api.ipify.org")
+    #print('IP is : '+str(driver.page_source))
+    
     driver.close()
     
     return(res)

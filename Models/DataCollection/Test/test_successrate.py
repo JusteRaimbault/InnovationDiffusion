@@ -10,7 +10,7 @@ success=0
 
 for port in portrange:
     print(port)
-    page=selenium_get.get_page(url,port,False)
+    page=selenium_get.get_page(url,port,False,2)
     tree = html.fromstring(page)
     if len(tree.find_class('printTableText')):
         success=success+1

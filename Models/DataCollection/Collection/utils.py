@@ -5,9 +5,9 @@
 # get param value from param file
 def get_parameter(param_name,as_string=False,ignored=False):
     if not ignored :
-        pfile=import_csv('../conf/parameters.csv',';')
+        pfile=import_csv('conf/parameters.csv',';')
     else :
-        pfile=import_csv('../conf/parameters_ignored.csv',';')
+        pfile=import_csv('conf/parameters_ignored.csv',';')
     value = 0
     for line in pfile:
         if line[0]==param_name :

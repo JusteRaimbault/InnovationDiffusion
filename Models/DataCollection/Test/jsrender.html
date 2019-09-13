@@ -1,0 +1,31 @@
+
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>jsrender</title>
+
+  <script type="text/javascript">
+  var count = 1;
+
+    function countDown(){
+        var timer = document.getElementById("timer");
+        if(count > 0){
+            count--;
+            timer.innerHTML = "Waiting...";
+            setTimeout("countDown()", 1000);
+        }else{
+            timer.innerHTML = "Rendered js";
+        }
+    }
+  </script>
+
+</head>
+
+<body>
+<span id="timer"><script type="text/javascript">countDown();</script></span>
+</div>
+</body>
+</html>

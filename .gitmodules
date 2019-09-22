@@ -7,3 +7,6 @@
 [submodule "Models/patent_city"]
 	path = Models/patent_city
 	url = git@github.com:Antoberge/patent_city.git
+[submodule "Models/scrapEspaceNet"]
+	path = Models/scrapEspaceNet
+	url = git@github.com:cverluise/scrapEspaceNet.git

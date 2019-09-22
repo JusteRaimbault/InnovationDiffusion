@@ -1,10 +1,14 @@
+
 from selenium import webdriver
-from selenium.webdriver.common import action_chains
+#from selenium.webdriver.common import action_chains
+#from seleniumwire import webdriver
+
 import time
 import sys
 
 #driver = webdriver.Firefox()
 
+# set socks to use tor
 profile=webdriver.FirefoxProfile()
 profile.set_preference('network.proxy.type', 1)
 profile.set_preference("network.proxy.socks", "127.0.0.1")

@@ -29,9 +29,9 @@ database = mongo[DATABASE]
 if drop :
     database['tocollect'].drop()
 
-existing = set([e['id'] for e in list(database['tocollect'].find({},{'id':1}))])
+existing = set([e['id'] for e in list(database['raw'].find({},{'id':1}))])
 tocollect = list(set(range(MINID,MAXID)).difference(existing))
-print('Missing ids: '+len(tocollect))
+print('Missing ids: '+str(len(tocollect)))
 
 # fill id coll with id to collect
 ids = [{'id':i,'attempts':0} for i in tocollect]

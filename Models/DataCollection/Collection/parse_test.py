@@ -1,6 +1,7 @@
 
 import pymongo
-import parser
+import parser,utils
+
 
 mongo = pymongo.MongoClient(utils.get_parameter('mongopath',True,True))
 database = mongo['uspto']
@@ -9,10 +10,11 @@ batchsize=100
 
 validated=0
 
-for d in database['raw'].find({},{},batchsize):
+for d in database['raw'].find({},{'id':1,'html':1},limit=batchsize):
     sample = parser.parse(d['id'],d['html'])
     if parser.validate(sample):
         validated = validated + 1
+    print(sample)
     print(parser.to_string(sample))
 
 print('Validated: '+str(validated/batchsize))

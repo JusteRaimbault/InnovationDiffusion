@@ -31,7 +31,7 @@ for i in range(0,BULKSIZE):
         if 'attempts' in rec : attempts = rec['attempts']
         print(str(id)+" ; "+str(attempts))
         try:
-            pdata = requests.get(url+str(id),proxies=pool.proxies(), timeout=10)
+            pdata = requests.get(url+str(id),proxies=pool.proxies(), timeout=30)
             tree = html.fromstring(pdata.content)
             #print(pdata.content)
             #if len(tree.find('title'))>0:

@@ -1,4 +1,14 @@
 
+
+#####
+# tor ip rotation ?
+#  https://stem.torproject.org/api/process.html
+#  https://github.com/erdiaker/torrequest/blob/master/torrequest.py
+#  https://tor.stackexchange.com/questions/9934/tor-is-only-assigning-circuits-from-a-very-limited-subset-of-exit-nodes
+
+
+
+
 import selenium_get
 from lxml import html,etree
 
@@ -17,6 +27,3 @@ for port in portrange:
         print(tree.find_class('printTableText')[0].text)
 
 print('rate : '+str(success/len(portrange)))
-
-
-

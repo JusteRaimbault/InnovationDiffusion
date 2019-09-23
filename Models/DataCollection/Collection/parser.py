@@ -35,9 +35,11 @@ def parse(id,rawtext,verbose=False):
     res['title']=title
 
     # publicationNumber: id with code - should be the only dd with this attribute
-    fullid = tree.xpath("//dd[@itemprop='publicationNumber']")
-    if len(fullid)>0:
-        res['fullid']=fullid[0].text
+    fullid=''
+    fullidelem = tree.xpath("//dd[@itemprop='publicationNumber']")
+    if len(fullidelem)>0:
+        fullid = fullidelem[0].text.strip()
+        res['fullid']=fullid
 
 
     # grant - can be event granted
@@ -86,7 +88,8 @@ def parse(id,rawtext,verbose=False):
     #    print('Description: '+str(len(description))+' paragraphs')
     descriptionelem=tree.xpath("//div[@class='description']")
     if len(descriptionelem)>0:
-        res['text']=html.tostring(descriptionelem[0])
+        res['text']= b''.join([html.tostring(child) for child in descriptionelem[0].iterchildren()])
+        #res['text']=html.tostring(descriptionelem[0])
 
     # inventors
     inventors = []
@@ -171,7 +174,7 @@ def parse(id,rawtext,verbose=False):
     # Publication: all ids - pre-grant publication - consider only one possible
     allids = []
     for altid in tree.xpath("//tr[@itemprop='pubs']"):
-        currentid = get_first_text(altid.xpath(".//span[@itemprop='publicationNumber']"))
+        currentid = get_first_text(altid.xpath(".//span[@itemprop='publicationNumber']")).strip()
         if currentid != fullid:
             allids.append([currentid,get_first_text(altid.xpath(".//td[@itemprop='publicationDate']"))])
     if len(allids)>0:
@@ -255,7 +258,8 @@ def to_string(parsed):
         if attr not in parsed:
             parsed[attr]=[]
     return(
-        'Id: '+parsed['id']+'\n'+
+        'Id: '+str(parsed['id'])+'\n'+
+        '    Full id: '+str(parsed['fullid'])+'\n'+
         '    Title: '+parsed['title']+'\n'+
         '    Text: '+str(len(parsed['text']))+'\n'+
         '    Granted: '+parsed['granted']+'\n'+
@@ -269,6 +273,6 @@ def to_string(parsed):
         '    Claims: '+str(len(parsed['claims']))+'\n'+
         '    Application: '+str(parsed['applicationNumber'])+'\n'+
         '    Priorities: '+str(len(parsed['priorities']))+'\n'+
-        '    Prev pub: '+str(parsed['prev_pub'])+'\n'+
+        '    Prev pub: '+str(parsed['prev_pub'])+'\n'#+
         '    Other pubs: '+str(len(parsed['other_pubs']))
         )

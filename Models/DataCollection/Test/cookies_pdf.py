@@ -37,6 +37,7 @@ print('url : '+url)
 #r = requests.get(url,headers = headers)
 r = requests.get(url,headers = headers_1,proxies={'http':'socks5://127.0.0.1:9050'})
 print('Cookies : '+str(r.cookies))
+print(r.headers)
 
 #url2 = open('urls/url2').readline()
 #r2 = requests.get(url2,headers = headers_2,cookies = r.cookies,proxies={'http':'socks5://127.0.0.1:9050'})

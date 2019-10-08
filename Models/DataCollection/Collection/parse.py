@@ -15,13 +15,13 @@ successnum=0
 start=time.time()
 
 for i in range(0,BULKSIZE):
-    rec = database['raw'].find_one_and_delete()
+    rec = database['raw'].find_one_and_delete({})
     if rec is not None:
         try:
             parsed = parser.parse(rec['id'],rec['html'])
             if parser.validate(parsed):
                 successnum = successnum + 1
-                #print(parser.to_string(parsed))
+                print(parser.to_string(parsed))
                 database['patents'].insert_one(parsed)
             else :
                 # put again id in tocollect

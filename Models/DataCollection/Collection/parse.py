@@ -5,8 +5,8 @@ import parser
 
 DATABASE='uspto'
 #DATABASE='test'
-#BULKSIZE = int(utils.get_parameter('bulksize',False,False))
-BULKSIZE = 2
+BULKSIZE = int(utils.get_parameter('bulksize',False,False))
+#BULKSIZE = 2
 print('bulksize : '+str(BULKSIZE))
 
 mongo = pymongo.MongoClient(utils.get_parameter('mongopath',True,True))

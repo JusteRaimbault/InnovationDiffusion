@@ -90,10 +90,10 @@ def parse(id,rawtext,verbose=False):
     if len(descriptionelem)>0:
         #res['text']= "".join([html.tostring(child) for child in descriptionelem[0].iterchildren()])
         #res['text']=html.tostring(descriptionelem[0])
-        text = ""
+        text = b''
         for child in descriptionelem[0].iterchildren():
             text=text+html.tostring(child)
-        res['text']=text
+        res['text']=text.decode("utf-8")
 
     # inventors
     inventors = []

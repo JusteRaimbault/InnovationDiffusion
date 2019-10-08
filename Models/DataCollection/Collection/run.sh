@@ -3,7 +3,8 @@ cd $HOME/ComplexSystems/InnovationDiffusion/Models/DataCollection/Collection
 
 #echo `which python`
 PYTHON=$HOME/anaconda3/bin/python
-SCRIPT=collect.py
+#SCRIPT=collect.py
+SCRIPT=parse.py
 
 RUNNING=`ps -ef | grep "python $SCRIPT" | grep -v "grep" | wc -l`
 #echo $RUNNING

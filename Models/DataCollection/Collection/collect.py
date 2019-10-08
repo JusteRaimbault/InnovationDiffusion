@@ -6,16 +6,17 @@ import time
 from manager import TorPoolManager
 from lxml import html,etree
 
-DATABASE='uspto'
-#DATABASE='test'
-BULKSIZE = int(utils.get_parameter('bulksize',False,False))
+#DATABASE='uspto'
+DATABASE='test'
+#BULKSIZE = int(utils.get_parameter('bulksize',False,False))
+BULKSIZE = 100
 print('bulksize : '+str(BULKSIZE))
 
 mongo = pymongo.MongoClient(utils.get_parameter('mongopath',True,True))
 database = mongo[DATABASE]
 
-url = open('url','r').readlines()[0].replace('\n','')
-
+#url = open('url','r').readlines()[0].replace('\n','')
+url = open('url2','r').readlines()[0].replace('\n','')
 
 pool = TorPoolManager()
 pool.switchPort(True)

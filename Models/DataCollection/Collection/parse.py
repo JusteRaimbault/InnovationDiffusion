@@ -21,7 +21,10 @@ for i in range(0,BULKSIZE):
             parsed = parser.parse(rec['id'],rec['html'])
             if parser.validate(parsed):
                 successnum = successnum + 1
-                print(parser.to_string(parsed))
+                #print(parser.to_string(parsed))
+                # !!! FAIL binary data for text
+                #! TODO
+
                 database['patents'].insert_one(parsed)
             else :
                 # put again id in tocollect

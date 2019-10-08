@@ -5,8 +5,8 @@ import parser
 
 DATABASE='uspto'
 #DATABASE='test'
-#BULKSIZE = int(utils.get_parameter('bulksize',False,False))
-BULKSIZE = 2
+BULKSIZE = int(utils.get_parameter('bulksize',False,False))
+#BULKSIZE = 2
 print('bulksize : '+str(BULKSIZE))
 
 mongo = pymongo.MongoClient(utils.get_parameter('mongopath',True,True))
@@ -16,7 +16,7 @@ successnum=0
 start=time.time()
 
 for i in range(0,BULKSIZE):
-    rec = database['raw'].find_one_and_delete()
+    rec = database['raw'].find_one_and_delete({})
     if rec is not None:
         try:
             parsed = parser.parse(rec['id'],rec['html'])

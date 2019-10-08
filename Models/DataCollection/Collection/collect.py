@@ -36,7 +36,8 @@ for i in range(0,BULKSIZE):
             tree = html.fromstring(pdata.content)
             #print(pdata.content)
             #if len(tree.find('title'))>0:
-            if len(tree.find_class('description'))>0:
+            #if len(tree.find_class('description'))>0:
+            if len(tree.xpath("//dd[@itemprop='publicationNumber']"))>0:
                 # insert raw html in db
                 #print(tree.find_class('description')[0].text)
                 print('ok')

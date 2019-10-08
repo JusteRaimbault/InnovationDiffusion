@@ -85,7 +85,7 @@ class TorPoolManager():
     #' Primitive to get current socks proxy
     def proxies(self):
         print('Proxy address : socks5://127.0.0.1:'+str(self.port))
-        return({'http':'socks5://127.0.0.1:'+str(self.port)})
+        return({'http':'socks5://127.0.0.1:'+str(self.port),'https':'socks5://127.0.0.1:'+str(self.port)})
 
     #'
     #' Switch the port

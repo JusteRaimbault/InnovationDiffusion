@@ -28,8 +28,8 @@ MAXID=101001 # test
 #MAXID=10000
 
 # drop to update with existing raw
-#drop = True
-drop = False
+drop = True
+#drop = False
 
 mongo = pymongo.MongoClient(utils.get_parameter('mongopath',True,True))
 database = mongo[DATABASE]

@@ -88,8 +88,12 @@ def parse(id,rawtext,verbose=False):
     #    print('Description: '+str(len(description))+' paragraphs')
     descriptionelem=tree.xpath("//div[@class='description']")
     if len(descriptionelem)>0:
-        res['text']= b''.join([html.tostring(child) for child in descriptionelem[0].iterchildren()])
+        #res['text']= "".join([html.tostring(child) for child in descriptionelem[0].iterchildren()])
         #res['text']=html.tostring(descriptionelem[0])
+        text = ""
+        for child in descriptionelem[0].iterchildren():
+            text=text+html.tostring(child)
+        res['text']=text
 
     # inventors
     inventors = []

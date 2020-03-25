@@ -1,0 +1,21 @@
+
+
+
+https://spacy.io/usage/linguistic-features
+
+https://en.wikipedia.org/wiki/Word2vec
+
+https://grobid.readthedocs.io/en/latest/Introduction/
+
+https://framagit.org/MarionMai/rechercher-les-lieux---les-lieux-de-la-recherche/blob/master/D_GeoCites_VILLARD_JE_RLLR_2019.pdf
+
+https://github.com/openvenues/libpostal
+
+https://www.whosonfirst.org/browse/#places
+
+https://www.cortext.net/
+
+https://www.constituerunpatrimoine.fr/programme-grand-paris?fbclid=IwAR2Kai814zlus4jeHIopsqMoWNDx0j2IV4aT-CsWsjFdgQrqnN9Do3EZnp8 (wtf pub fb)
+
+https://competitions.codalab.org/competitions/20612#learn_the_details-overview
+

@@ -1,0 +1,12 @@
+[submodule "Models/DataProcessing/SemanticPatents"]
+	path = Models/DataProcessing/SemanticPatents
+	url = git@github.com:JusteRaimbault/SemanticPatents.git
+[submodule "Models/BRV"]
+	path = Models/BRV
+	url = git@github.com:cverluise/BRV.git
+[submodule "Models/patent_city"]
+	path = Models/patent_city
+	url = git@github.com:Antoberge/patent_city.git
+[submodule "Models/scrapEspaceNet"]
+	path = Models/scrapEspaceNet
+	url = git@github.com:cverluise/scrapEspaceNet.git

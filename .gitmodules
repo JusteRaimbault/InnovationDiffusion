@@ -10,3 +10,6 @@
 [submodule "Models/scrapEspaceNet"]
 	path = Models/scrapEspaceNet
 	url = git@github.com:cverluise/scrapEspaceNet.git
+[submodule "Docs/Papers/InnovationDiffusion"]
+	path = Docs/Papers/InnovationDiffusion
+	url = git@github.com:JusteRaimbault/InnovationDiffusion-paper.git

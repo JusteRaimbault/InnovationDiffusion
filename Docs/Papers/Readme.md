@@ -16,6 +16,9 @@ Latest version of patentcity db (useful in that context?): german data added htt
 
 ### InnovationDiffusion
 
+
+- [2022/01/18] bib: seminar: similar idea https://www.gssi.it/seminars/seminars-and-events-2021/item/15276-the-spatial-diffusion-of-simple-and-complex-technologies
+
 Raimbaukt, Bergeaud and Pumain
 
 evolutionary urban theory / empirical caracterisation of the diffusion of innovations

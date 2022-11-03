@@ -17,6 +17,8 @@ Latest version of patentcity db (useful in that context?): german data added htt
 ### InnovationDiffusion
 
 
+- [2022/11/03] reproducibility patentmining: try to recheck the salient lagged corr? [-> implies technical reprod: pb memory, plus Zeb!]
+
 - [2022/01/18] bib: seminar: similar idea https://www.gssi.it/seminars/seminars-and-events-2021/item/15276-the-spatial-diffusion-of-simple-and-complex-technologies
 
 Raimbaukt, Bergeaud and Pumain
